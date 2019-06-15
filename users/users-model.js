@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function get() {
-   return db('users');
+   return db('users').select('id', 'username', 'password', 'department');
 }
 
 function getById(id) {
@@ -16,7 +16,7 @@ function getById(id) {
 }
 
 function getBy(filter) {
-   return db('users').where(filter);
+   return db('users').where(filter).first();
 }
 
 async function add(user) {
